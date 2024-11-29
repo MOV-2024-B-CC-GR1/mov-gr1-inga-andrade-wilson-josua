@@ -35,7 +35,7 @@ class BListView : AppCompatActivity() {
         val botonAnadirListView = findViewById<Button>(R.id.btn_anadir_list_view)
         botonAnadirListView
             .setOnClickListener { anadirEntrenador(adaptador) }
-        registerForContextMenu(ListView)
+        registerForContextMenu(listView)
 
     }
     var posicionItemSeleccionado = -1 // Variable Global
