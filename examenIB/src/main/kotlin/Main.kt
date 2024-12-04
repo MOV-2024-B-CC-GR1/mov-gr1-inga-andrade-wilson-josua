@@ -58,8 +58,8 @@ fun crearSerVivo(serVivoService: SerVivoService, organoService: OrganoService) {
     println("Edad del Ser Vivo:")
     val edadSerVivo = leerValorInt()
 
-    println("¿Quieres agregar órganos a este Ser Vivo? (sí/no):")
-    val agregarOrganos = readln().lowercase() == "sí"
+    println("¿Quieres agregar órganos a este Ser Vivo? (si/no):")
+    val agregarOrganos = readln().lowercase() == "si"
 
     val organos = if (agregarOrganos) {
         agregarOrganosAserVivo(organoService)
