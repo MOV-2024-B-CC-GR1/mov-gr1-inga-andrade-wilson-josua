@@ -1,0 +1,4 @@
+2,Gato,Mamifero,true,5,[1:corazon:bombear sangre:4500:98.0]
+3,Libelula,Insecto,false,1,[]
+4,Cuy,Mamifero,true,2,[2:estomago:digerir comida:3000:95.5]
+5,Oruga,Insecto,false,1,[]
