@@ -1,5 +1,6 @@
 package com.example.ccgr12024b_wjia
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.ContextMenu
 import android.view.MenuItem
@@ -9,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -58,11 +60,6 @@ class BListView : AppCompatActivity() {
 
     }
 
-    fun anadirEntrenador(adaptador: ArrayAdapter<BEntrenador>) {
-        arreglo.add(BEntrenador(4, "Wendy", "d@d.com"))
-        adaptador.notifyDataSetChanged()
-    }
-
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
             R.id.mi_editar -> {
@@ -71,6 +68,7 @@ class BListView : AppCompatActivity() {
             }
             R.id.mi_eliminar -> {
                 mostrarSnackbar("${posicionItemSeleccionado}")
+                abrirDialogo()
                 return true
             }
             else -> super.onContextItemSelected(item)
@@ -84,7 +82,44 @@ class BListView : AppCompatActivity() {
         )
         snack.show()
     }
-    fun abrirDialogo(){}
+    fun abrirDialogo(){
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Desea Eliminar")
+        builder.setPositiveButton(
+            "Aceptar",
+            DialogInterface.OnClickListener { dialog, which ->
+                mostrarSnackbar("Eliminar aceptado")
+            }
+        )
+        builder.setNegativeButton(
+            "Cancelar",
+            null
+        )
+        val opciones = resources.getStringArray()
+        val seleccionPrevia = booleanArrayOf(
+            true, false, false
+        )
+        builder.setMultiChoiceItems(
+            opciones,
+            seleccionPrevia,
+            {
+                dialog,
+                which,
+                isChecked -> mostrarSnackbar(
+                    "${which} $isChecked"
+                )
+            }
+        )
+        val dialogo = builder.create()
+        dialogo.show()
+
+    }
+
+
+    fun anadirEntrenador(adaptador: ArrayAdapter<BEntrenador>) {
+        arreglo.add(BEntrenador(4, "Wendy", "d@d.com"))
+        adaptador.notifyDataSetChanged()
+    }
 
 }
 
