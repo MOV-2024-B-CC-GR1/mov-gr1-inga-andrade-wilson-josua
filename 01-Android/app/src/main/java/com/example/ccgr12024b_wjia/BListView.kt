@@ -95,7 +95,9 @@ class BListView : AppCompatActivity() {
             "Cancelar",
             null
         )
-        val opciones = resources.getStringArray()
+        val opciones = resources.getStringArray(
+            R.array.string_array_opciones_dialogo
+        )
         val seleccionPrevia = booleanArrayOf(
             true, false, false
         )
