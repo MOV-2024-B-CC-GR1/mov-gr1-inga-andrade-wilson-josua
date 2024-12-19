@@ -1,0 +1,2 @@
+1,Cocodrilo,Reptil,true,2021-03-02,[1:corazon:bombear sangre:4000:95.5]
+2,Pelicano,Ave,true,2014-02-05,[]
