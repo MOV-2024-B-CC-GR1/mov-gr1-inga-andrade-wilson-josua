@@ -2,6 +2,7 @@ package com.example.ccgr12024b_wjia
 
 import android.os.Bundle
 import android.view.ContextMenu
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -11,6 +12,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.snackbar.Snackbar
 
 class BListView : AppCompatActivity() {
     var arreglo = BBaseDatosMemoria.arregloEntrenador
@@ -60,4 +62,29 @@ class BListView : AppCompatActivity() {
         arreglo.add(BEntrenador(4, "Wendy", "d@d.com"))
         adaptador.notifyDataSetChanged()
     }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId){
+            R.id.mi_editar -> {
+                mostrarSnackbar("$posicionItemSeleccionado")
+                return true
+            }
+            R.id.mi_eliminar -> {
+                mostrarSnackbar("${posicionItemSeleccionado}")
+                return true
+            }
+            else -> super.onContextItemSelected(item)
+        }
+    }
+    fun mostrarSnackbar(texto: String){
+        val snack = Snackbar.make(
+            findViewById(R.id.cl_list_view),
+            texto,
+            Snackbar.LENGTH_INDEFINITE
+        )
+        snack.show()
+    }
+    fun abrirDialogo(){}
+
 }
+

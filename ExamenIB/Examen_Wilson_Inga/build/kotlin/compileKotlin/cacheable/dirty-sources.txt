@@ -1,0 +1,6 @@
+C:\Users\wilson.inga\Documents\Github\2024B\mov-gr1-inga-andrade-wilson-josua\examenIB\Examen_Wilson_Inga\src\main\kotlin\models\SerVivo.kt
+C:\Users\wilson.inga\Documents\Github\2024B\mov-gr1-inga-andrade-wilson-josua\examenIB\Examen_Wilson_Inga\src\main\kotlin\services\SerVivoService.kt
+C:\Users\wilson.inga\Documents\Github\2024B\mov-gr1-inga-andrade-wilson-josua\examenIB\Examen_Wilson_Inga\src\main\kotlin\services\OrganoService.kt
+C:\Users\wilson.inga\Documents\Github\2024B\mov-gr1-inga-andrade-wilson-josua\examenIB\Examen_Wilson_Inga\src\main\kotlin\Main.kt
+C:\Users\wilson.inga\Documents\Github\2024B\mov-gr1-inga-andrade-wilson-josua\examenIB\Examen_Wilson_Inga\src\main\kotlin\utils\FileManager.kt
+C:\Users\wilson.inga\Documents\Github\2024B\mov-gr1-inga-andrade-wilson-josua\examenIB\Examen_Wilson_Inga\src\main\kotlin\models\Organo.kt
