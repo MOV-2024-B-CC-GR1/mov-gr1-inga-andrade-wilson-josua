@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ccgr12024b_wjia</string>
     <string name="saludo">Hello Friends</string>
-    <color name ="saludo_color">#Cd8915</color>
+    <color name="saludo_color">#Cd8915</color>
 
     <string-array name="string_array_opciones_dialogo">
         <item>Lunes</item>
