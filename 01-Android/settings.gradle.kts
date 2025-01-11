@@ -19,5 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ccgr12024b_wjia"
+rootProject.name = "ccgr12024b-wjia"
 include(":app")
+ 

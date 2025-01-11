@@ -19,14 +19,15 @@ class ACicloVida : AppCompatActivity() {
         }
         mostrarSnackbar("onCreate")
     }
+
     override fun onStart(){
         super.onStart()
-        mostrarSnackbar("onStart")
+        mostrarSnackbar("OnStart")
     }
 
     override fun onResume(){
         super.onResume()
-        mostrarSnackbar("onResume")
+        mostrarSnackbar("OnResume")
     }
 
     override fun onRestart(){
@@ -38,14 +39,15 @@ class ACicloVida : AppCompatActivity() {
         super.onPause()
         mostrarSnackbar("onPause")
     }
+
     override fun onStop(){
         super.onStop()
         mostrarSnackbar("onStop")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.run{
-            //Guardar las variables
+        outState.run {
+            // Guardar las vaariables
             putString("variableTextoGuardado", textoGlobal)
         }
         super.onSaveInstanceState(outState)
@@ -53,14 +55,17 @@ class ACicloVida : AppCompatActivity() {
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        //Recuperar las variables
+        // Recuperar las variables
         val textoRecuperado: String? = savedInstanceState
             .getString("variableTextoGuardado")
         if(textoRecuperado != null){
-            //textoGlobal = textoRecuperado
+            // textoGlobal = textoRecuperado
             mostrarSnackbar(textoRecuperado) // ya guarda el texto global
         }
     }
+
+
+
 
     var textoGlobal = ""
     fun mostrarSnackbar(text:String){
@@ -73,4 +78,3 @@ class ACicloVida : AppCompatActivity() {
         snack.show()
     }
 }
-
