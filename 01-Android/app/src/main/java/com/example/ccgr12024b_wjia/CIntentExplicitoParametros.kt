@@ -1,6 +1,8 @@
 package com.example.ccgr12024b_wjia
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,5 +18,18 @@ class CIntentExplicitoParametros : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val nombre = intent.getStringExtra("nombre")
+        val apellido = intent.getStringExtra("apellido")
+        val edad = intent.getIntExtra("edad", 0)
+        val boton = findViewById<Button>(R.id.btn_devolver_respuesta)
+        boton.setOnClickListener {
+            val intentDevolverRespuesta = Intent()
+            intentDevolverRespuesta.putExtra(
+                "nombreModificado", "$nombre, $edad, $apellido"
+            )
+            setResult(RESULT_OK, intentDevolverRespuesta)
+            finish()
+        }
+
     }
 }
