@@ -8,4 +8,6 @@
         <item>Martes</item>
         <item>Miercoles</item>
     </string-array>
+
+    <string name="title_activity_aciclo_vida">ACicloVida</string>
 </resources>
