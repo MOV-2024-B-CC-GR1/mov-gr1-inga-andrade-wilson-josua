@@ -101,6 +101,9 @@ class MainActivity : AppCompatActivity() {
                 intentExplicito.putExtra("nombre", "Adrian")
                 intentExplicito.putExtra("apellido", "Eguez")
                 intentExplicito.putExtra("edad", 34)
+                intentExplicito.putExtra("entrenador",
+                    BEntrenador(1, "Adrian", "Ejemplo")
+                )
                 callbackContenidoIntentExplicito.launch(intentExplicito)
             }
         val botonIrSqlite = findViewById<Button>(R.id.btn_sqlite)
