@@ -35,29 +35,34 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    val callbackContenidoIntentImplicito = registerForActivityResult(
+
+    val callbackContenidoIntentImplicito =
+        registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
-    ){
-            result ->
-        if(result.resultCode == Activity.RESULT_OK){
-            if(result.data != null){
-                // validacion de contacto
-                if(result.data!!.data != null){
-                    var uri: Uri = result.data!!.data!!
-                    val cursor = contentResolver.query(
-                        uri, null, null, null, null, null
-                    )
-                    cursor?.moveToFirst()
-                    val indiceTelefono = cursor?.getColumnIndex(
-                        ContactsContract.CommonDataKinds.Phone.NUMBER
-                    )
-                    val telefono = cursor?.getString(indiceTelefono!!)
-                    cursor?.close()
-                    mostrarSnackbar("Telefono $telefono")
+        ){
+                result ->
+            if(result.resultCode == Activity.RESULT_OK){
+                if(result.data != null){
+                    // validacion de contacto
+                    if(result.data!!.data != null){
+                        var uri: Uri = result.data!!.data!!
+                        val cursor = contentResolver.query(
+                            uri, null, null, null, null, null
+                        )
+                        cursor?.moveToFirst()
+                        val indiceTelefono = cursor?.getColumnIndex(
+                            ContactsContract.CommonDataKinds.Phone.NUMBER
+                        )
+                        val telefono = cursor?.getString(indiceTelefono!!)
+                        cursor?.close()
+                        mostrarSnackbar("Telefono $telefono")
+                    }
                 }
             }
         }
-    }
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,7 +73,6 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         // Inicializar BDD
         EBaseDeDatos.tablaEntrenador = ESqliteHelperEntrenador(this)
 
@@ -82,6 +86,7 @@ class MainActivity : AppCompatActivity() {
             .setOnClickListener {
                 irActividad(BListView::class.java)
             }
+
         val botonImplicito = findViewById<Button>(R.id.btn_ir_intent_implicito)
         botonImplicito
             .setOnClickListener {
@@ -102,18 +107,29 @@ class MainActivity : AppCompatActivity() {
                 intentExplicito.putExtra("apellido", "Eguez")
                 intentExplicito.putExtra("edad", 34)
                 intentExplicito.putExtra("entrenador",
-                    BEntrenador(1, "Adrian", "Ejemplo")
+                    BEntrenador(1,"Adrian","Ejemplo")
                 )
                 callbackContenidoIntentExplicito.launch(intentExplicito)
             }
+
         val botonIrSqlite = findViewById<Button>(R.id.btn_sqlite)
         botonIrSqlite
             .setOnClickListener {
                 irActividad(ECrudEntrenador::class.java)
             }
-    }
 
+
+        val botonIrRecyclerView = findViewById<Button>(R.id.btn_recycler_view)
+        botonIrRecyclerView
+            .setOnClickListener {
+                irActividad(FRecyclerView::class.java)
+            }
+
+    }
     fun irActividad(clase:Class<*>){
         startActivity(Intent(this, clase))
     }
+
+
+
 }
