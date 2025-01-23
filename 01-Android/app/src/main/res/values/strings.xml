@@ -10,4 +10,5 @@
     </string-array>
 
     <string name="title_activity_aciclo_vida">ACicloVida</string>
+    <string name="title_activity_ggoogle_maps_placeholder">GGoogleMapsPlaceholder</string>
 </resources>
