@@ -91,7 +91,19 @@
         android:layout_marginTop="40dp"
         android:text="G. Maps"
         app:layout_constraintEnd_toEndOf="@+id/btn_sqlite"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/btn_sqlite"
         app:layout_constraintTop_toBottomOf="@+id/btn_sqlite" />
+
+    <Button
+        android:id="@+id/btn_intent_firebase_ui"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Auth"
+        app:layout_constraintBottom_toTopOf="@+id/btn_recycler_view"
+        app:layout_constraintEnd_toEndOf="@+id/btn_recycler_view"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_recycler_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
