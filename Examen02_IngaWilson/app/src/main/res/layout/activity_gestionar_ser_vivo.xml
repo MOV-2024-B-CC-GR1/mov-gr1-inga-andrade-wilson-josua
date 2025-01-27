@@ -5,6 +5,127 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GestionarSerVivoActivity">
+    tools:context=".GestionarSerVivoActivity"
+    android:padding="16dp">
+
+    <!-- Título del Ser Vivo -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ser Vivo"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/etNombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <!-- EditText para Nombre -->
+    <TextView
+        android:id="@+id/textViewNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/etNombre"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- EditText para Tipo -->
+
+    <EditText
+        android:id="@+id/etNombre"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="52dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:drawableLeft="@android:drawable/ic_input_add"
+        android:hint="Nombre"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/etTipo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewTipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/etTipo"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- EditText para Fecha de Nacimiento -->
+    <EditText
+        android:id="@+id/etTipo"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="48dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:drawableLeft="@android:drawable/ic_input_add"
+        android:hint="Tipo"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/etFechaNacimiento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewFechaNacimiento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha de Nacimiento:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/etFechaNacimiento"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/etFechaNacimiento"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:hint="Fecha de Nacimiento (YYYY-MM-DD)"
+        android:backgroundTint="@android:color/darker_gray"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:drawableLeft="@android:drawable/ic_input_add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/cbEsVertebrado" />
+
+    <!-- CheckBox para Es Vertebrado -->
+    <CheckBox
+        android:id="@+id/cbEsVertebrado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Es Vertebrado"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnGuardarSerVivo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Botón de Guardar -->
+    <Button
+        android:id="@+id/btnGuardarSerVivo"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="Guardar"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimary"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

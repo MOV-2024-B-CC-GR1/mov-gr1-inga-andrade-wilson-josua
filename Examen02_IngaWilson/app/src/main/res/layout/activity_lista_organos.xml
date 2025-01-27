@@ -5,6 +5,52 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListaOrganosActivity">
+    tools:context=".ListaOrganosActivity"
+    android:padding="16dp">
+
+    <!-- Título para mostrar el nombre del ser vivo -->
+    <TextView
+        android:id="@+id/serVivoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ser Vivo:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/listaOrganos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <!-- ListView para mostrar los órganos -->
+    <ListView
+        android:id="@+id/listaOrganos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        app:layout_constraintTop_toBottomOf="@+id/serVivoTextView"
+        app:layout_constraintBottom_toTopOf="@+id/btnAgregarOrgano"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        android:backgroundTint="@android:color/white"
+        android:padding="8dp"/>
+
+    <!-- Botón para agregar un órgano -->
+    <Button
+        android:id="@+id/btnAgregarOrgano"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimary"
+        android:text="Agregar Órgano"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listaOrganos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
