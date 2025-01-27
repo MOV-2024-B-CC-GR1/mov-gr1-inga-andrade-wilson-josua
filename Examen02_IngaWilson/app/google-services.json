@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "939694548307",
+    "project_id": "examen02-inga-wilson",
+    "storage_bucket": "examen02-inga-wilson.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939694548307:android:d5c19d0d9bd3127560ada6",
+        "android_client_info": {
+          "package_name": "com.example.ccgr12024b_wjia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPZR16lobTuOnkXgZkJRi3MvtQu8OX52w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
