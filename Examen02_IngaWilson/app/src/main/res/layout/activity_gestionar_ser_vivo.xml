@@ -13,15 +13,15 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:text="Ser Vivo"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/colorPrimary"
+        android:textColor="?attr/colorOnPrimaryFixedVariant"
         android:textStyle="bold"
-        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toTopOf="@+id/etNombre"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- EditText para Nombre -->
     <TextView
@@ -120,12 +120,12 @@
         android:id="@+id/btnGuardarSerVivo"
         android:layout_width="0dp"
         android:layout_height="48dp"
+        android:layout_marginBottom="32dp"
+        android:background="?attr/colorPrimaryDark"
         android:text="Guardar"
         android:textColor="@android:color/white"
-        android:background="@color/colorPrimary"
-        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

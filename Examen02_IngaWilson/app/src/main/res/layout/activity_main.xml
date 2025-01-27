@@ -6,23 +6,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:padding="16dp"
-    android:background="@color/background_color">
+    android:padding="16dp">
 
     <!-- Título principal con un estilo moderno -->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:text="Seres Vivos"
+        android:textColor="?attr/colorPrimaryDark"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:textColor="@color/colorPrimary"
-        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toTopOf="@+id/listaSeresVivos"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- ListView para mostrar la lista de seres vivos, con un diseño más limpio -->
@@ -39,7 +38,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.5"
-        android:background="@drawable/rounded_border"/>
+        />
 
     <!-- Botón de acción para agregar un nuevo ser vivo con un diseño llamativo -->
     <Button
@@ -48,7 +47,6 @@
         android:layout_height="56dp"
         android:text="Agregar Ser Vivo"
         android:textColor="@android:color/white"
-        android:background="@drawable/button_background"
         android:textSize="16sp"
         android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@+id/listaSeresVivos"

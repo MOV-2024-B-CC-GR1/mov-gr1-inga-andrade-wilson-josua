@@ -13,15 +13,15 @@
         android:id="@+id/serVivoTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="Ser Vivo:"
+        android:textColor="?attr/colorPrimaryDark"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/colorPrimary"
-        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/listaOrganos"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- ListView para mostrar los órganos -->
     <ListView
