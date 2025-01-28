@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/background_dark"
     android:padding="16dp"
-    tools:context=".ListaOrganosActivity">
+    tools:context=".GOrganosActivity">
 
     <!-- Título centrado con mayor tamaño -->
     <TextView
@@ -44,8 +44,8 @@
 
     <Button
         android:id="@+id/btnAgregarOrgano"
-        android:layout_width="241dp"
-        android:layout_height="56dp"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:backgroundTint="@android:color/holo_blue_light"
         android:drawableLeft="@android:drawable/ic_input_add"
         android:gravity="center"
