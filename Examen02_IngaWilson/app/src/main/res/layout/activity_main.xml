@@ -5,25 +5,31 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_dark"
+    android:background="@android:color/darker_gray"
     tools:context=".MainActivity"
     android:padding="16dp">
 
     <!-- Título principal con un estilo moderno -->
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="400dp"
+        android:layout_height="37dp"
         android:layout_marginBottom="24dp"
+        android:background="@color/white"
+        android:backgroundTint="@android:color/system_neutral1_700"
         android:text="Seres Vivos"
+        android:textAlignment="center"
+        android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="28sp"
         android:textStyle="bold"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/listaSeresVivos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
     <!-- ListView para mostrar la lista de seres vivos, con un diseño más limpio -->
     <ListView
@@ -32,7 +38,8 @@
         android:layout_height="513dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:divider="@android:color/darker_gray"
+        android:background="@android:color/darker_gray"
+        android:divider="@color/material_dynamic_neutral50"
         android:dividerHeight="1dp"
         app:layout_constraintBottom_toTopOf="@+id/btnCrearSerVivo"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,13 +53,18 @@
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
-        android:backgroundTint="@android:color/holo_blue_light"
+        android:backgroundTint="@android:color/system_neutral1_700"
         android:drawableLeft="@android:drawable/ic_input_add"
         android:text="Agregar Ser Vivo"
         android:textColor="@android:color/white"
         android:textSize="20sp"
+        app:iconPadding="0dp"
+        app:iconSize="30dp"
+        app:iconTint="@color/white"
+        app:iconTintMode="multiply"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listaSeresVivos" />
 

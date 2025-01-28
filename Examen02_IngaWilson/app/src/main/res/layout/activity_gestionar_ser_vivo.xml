@@ -1,115 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_dark"
+    android:background="@android:color/darker_gray"
     android:padding="16dp"
     tools:context=".SerVivoEditorActivity">
 
     <!-- Título centrado con mayor tamaño -->
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tvSerVivoCrud"
+        android:layout_width="400dp"
+        android:layout_height="37dp"
+        android:background="@android:color/system_neutral1_700"
         android:text="Ser Vivo"
-        android:textColor="@android:color/system_accent1_300"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/etNombre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.1"
+        tools:visibility="visible" />
 
     <!-- EditText para Nombre -->
-
-    <!-- EditText para Tipo -->
 
     <EditText
         android:id="@+id/etNombre"
         android:layout_width="290dp"
         android:layout_height="50dp"
         android:layout_marginBottom="36dp"
-        android:backgroundTint="@android:color/darker_gray"
+        android:backgroundTint="@android:color/white"
         android:drawableLeft="@android:drawable/presence_invisible"
-        android:hint=" Nombre"
+        android:drawablePadding="4dp"
+        android:hint="Nombre del Ser Vivo"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textColorLink="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/etTipo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnGuardarSerVivo"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="164dp"
-        android:backgroundTint="@android:color/holo_blue_light"
-        android:text="Guardar"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        app:icon="@android:drawable/ic_menu_save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <CheckBox
-        android:id="@+id/cbEsVertebrado"
-        android:layout_width="204dp"
-        android:layout_height="28dp"
-        android:layout_marginBottom="52dp"
-        android:text="¿Es vertebrado?"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnGuardarSerVivo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/etTipo"
-        android:layout_width="290dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="28dp"
-        android:backgroundTint="@android:color/darker_gray"
-        android:drawableLeft="@android:drawable/presence_invisible"
-        android:hint=" Tipo"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/etFechaNacimiento"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/etFechaNacimiento"
         android:layout_width="290dp"
         android:layout_height="80dp"
-        android:layout_marginBottom="40dp"
-        android:backgroundTint="@android:color/darker_gray"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="@android:color/white"
         android:drawableLeft="@android:drawable/presence_invisible"
-        android:hint=" Fecha de Nacimiento (YYYY-MM-DD)"
+        android:drawablePadding="4dp"
+        android:hint="Fecha de Nacimiento (YYYY-MM-DD)"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:textColor="@color/white"
+        android:textColorLink="@color/black"
         android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/cbEsVertebrado"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/cbEsVertebrado"
+        android:layout_width="204dp"
+        android:layout_height="28dp"
+        android:layout_marginBottom="36dp"
+        android:text="¿Es vertebrado?"
+        android:textColor="@color/white"
+        android:textColorLink="@color/design_default_color_error"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnGuardarSerVivo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnGuardarSerVivo"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="212dp"
+        android:backgroundTint="@android:color/system_neutral1_700"
+        android:text="Guardar"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:icon="@android:drawable/ic_menu_save"
+        app:iconPadding="0dp"
+        app:iconSize="30dp"
+        app:iconTint="@color/white"
+        app:iconTintMode="multiply"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
+
+    <EditText
+        android:id="@+id/etTipo"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="@android:color/white"
+        android:drawableLeft="@android:drawable/presence_invisible"
+        android:drawablePadding="4dp"
+        android:hint="Tipo de Ser Vivo"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="@color/white"
+        android:textColorLink="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/etFechaNacimiento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent" />
 
     <!-- EditText para Fecha de Nacimiento -->
 
     <!-- CheckBox para Es Vertebrado -->
 
-    <!-- Botón de Guardar -->
+    <!-- Botón -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

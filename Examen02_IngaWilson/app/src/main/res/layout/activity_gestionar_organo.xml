@@ -6,26 +6,31 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_dark"
+    android:background="@android:color/darker_gray"
     android:padding="16dp"
     tools:context=".OrganoEditorActivity">
 
-    <!-- Título centrado con mayor tamaño -->
+    <!-- Título -->
     <TextView
         android:id="@+id/tvSerVivoInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="400dp"
+        android:layout_height="37dp"
+        android:background="@android:color/system_neutral1_700"
         android:text="Órgano"
-        android:textColor="@android:color/white"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/etNombreOrgano"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        tools:visibility="visible" />
 
-    <!-- EditText estilizados -->
+    <!-- EditText -->
 
     <EditText
         android:id="@+id/etNombreOrgano"
@@ -34,10 +39,12 @@
         android:layout_marginBottom="12dp"
         android:backgroundTint="@android:color/white"
         android:drawableLeft="@android:drawable/presence_invisible"
-        android:hint="  Nombre del Órgano"
+        android:drawablePadding="4dp"
+        android:hint="Nombre del Órgano"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textColorLink="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/etFuncionOrgano"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -49,10 +56,12 @@
         android:layout_marginBottom="28dp"
         android:backgroundTint="@android:color/white"
         android:drawableLeft="@android:drawable/presence_invisible"
-        android:hint="  Eficiencia"
+        android:drawablePadding="4dp"
+        android:hint="Eficiencia"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textColorLink="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/btnGuardarOrgano"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -64,28 +73,14 @@
         android:layout_marginBottom="4dp"
         android:backgroundTint="@android:color/white"
         android:drawableLeft="@android:drawable/presence_invisible"
-        android:hint="  Cantidad de Células"
+        android:drawablePadding="4dp"
+        android:hint="Cantidad de Células"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textColorLink="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/etEficiencia"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnGuardarOrgano"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="244dp"
-        android:backgroundTint="@android:color/holo_blue_light"
-        android:text="Guardar"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:icon="@android:drawable/ic_menu_save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -95,14 +90,37 @@
         android:layout_marginBottom="8dp"
         android:backgroundTint="@android:color/white"
         android:drawableLeft="@android:drawable/presence_invisible"
-        android:hint="  Función del Órgano"
+        android:drawablePadding="4dp"
+        android:hint="Función del Órgano"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textColorLink="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/etCantidadCelulas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Botón estilizado -->
+    <!-- Botón -->
+
+    <Button
+        android:id="@+id/btnGuardarOrgano"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="244dp"
+        android:backgroundTint="@android:color/system_neutral1_700"
+        android:text="Guardar"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:icon="@android:drawable/ic_menu_save"
+        app:iconPadding="0dp"
+        app:iconSize="30dp"
+        app:iconTint="@color/white"
+        app:iconTintMode="multiply"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
