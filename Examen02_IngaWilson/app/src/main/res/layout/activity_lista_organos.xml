@@ -11,28 +11,31 @@
     tools:context=".GOrganosActivity">
 
     <!-- Título centrado con mayor tamaño -->
+
+    <!-- ListView con fondo sutil y sin bordes agresivos -->
+
+    <!-- Botón estilizado con esquinas redondeadas -->
+
     <TextView
         android:id="@+id/serVivoTextView"
         android:layout_width="400dp"
         android:layout_height="37dp"
+        android:layout_marginBottom="24dp"
         android:background="@android:color/system_neutral1_700"
         android:text=""
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/listaOrganos"
+        app:layout_constraintBottom_toTopOf="@+id/tvOrgano"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintVertical_bias="0.279"
         tools:visibility="visible" />
-
-    <!-- ListView con fondo sutil y sin bordes agresivos -->
-
-    <!-- Botón estilizado con esquinas redondeadas -->
 
     <ListView
         android:id="@+id/listaOrganos"
