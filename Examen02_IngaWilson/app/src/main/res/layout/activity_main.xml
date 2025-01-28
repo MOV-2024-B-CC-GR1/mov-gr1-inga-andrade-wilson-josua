@@ -44,13 +44,14 @@
     <!-- Botón de acción para agregar un nuevo ser vivo con un diseño llamativo -->
     <Button
         android:id="@+id/btnCrearSerVivo"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_width="289dp"
+        android:layout_height="66dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="@android:color/holo_blue_light"
+        android:drawableLeft="@android:drawable/ic_input_add"
         android:text="Agregar Ser Vivo"
         android:textColor="@android:color/white"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

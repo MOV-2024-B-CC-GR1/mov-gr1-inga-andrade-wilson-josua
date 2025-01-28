@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -110,12 +111,31 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun eliminarSerVivo(serVivo: SerVivo) {
-        val db = dbHelper.writableDatabase
-        db.delete("SerVivo", "id = ?", arrayOf(serVivo.id.toString()))
-        seresVivos.remove(serVivo)
-        adapter.remove("${serVivo.nombre} - ${serVivo.tipo}")
-        adapter.notifyDataSetChanged()
+        try {
+            val db = dbHelper.writableDatabase
+
+            // Eliminar el ser vivo de la base de datos
+            val rowsDeleted = db.delete("SerVivo", "id = ?", arrayOf(serVivo.id.toString()))
+
+            if (rowsDeleted > 0) {
+                // Eliminar el ser vivo de la lista y actualizar el adaptador
+                seresVivos.remove(serVivo)
+
+                // Actualizar la lista en el adaptador
+                cargarListaSeresVivos()  // Esta función actualizará la lista en la interfaz de usuario
+
+                // Notificar al usuario
+                Toast.makeText(this, "Ser vivo eliminado con éxito", Toast.LENGTH_SHORT).show()
+            } else {
+                // Manejo si no se pudo eliminar
+                Toast.makeText(this, "Error al eliminar el ser vivo", Toast.LENGTH_SHORT).show()
+            }
+        } catch (e: Exception) {
+            Log.e("EliminarSerVivo", "Error al eliminar ser vivo", e)
+            Toast.makeText(this, "Error al eliminar el ser vivo", Toast.LENGTH_SHORT).show()
+        }
     }
+
 
     override fun onResume() {
         super.onResume()

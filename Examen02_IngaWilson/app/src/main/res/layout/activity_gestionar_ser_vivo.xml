@@ -100,16 +100,16 @@
     <!-- Botón de Guardar -->
     <Button
         android:id="@+id/btnGuardarSerVivo"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_width="214dp"
+        android:layout_height="49dp"
         android:layout_marginBottom="100dp"
         android:backgroundTint="@android:color/holo_blue_light"
         android:text="Guardar"
         android:textColor="@android:color/white"
+        android:textSize="20sp"
         app:icon="@android:drawable/ic_menu_save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

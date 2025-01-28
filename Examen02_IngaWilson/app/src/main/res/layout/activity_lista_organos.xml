@@ -44,13 +44,14 @@
 
     <Button
         android:id="@+id/btnAgregarOrgano"
-        android:layout_width="240dp"
-        android:layout_height="44dp"
+        android:layout_width="241dp"
+        android:layout_height="56dp"
         android:backgroundTint="@android:color/holo_blue_light"
+        android:drawableLeft="@android:drawable/ic_input_add"
         android:gravity="center"
         android:text="Agregar Órgano"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
