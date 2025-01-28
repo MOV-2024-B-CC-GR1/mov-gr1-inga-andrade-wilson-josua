@@ -17,7 +17,7 @@ class ListaOrganosActivity : AppCompatActivity() {
 
     private lateinit var dbHelper: DatabaseHelper
     private lateinit var listView: ListView
-    private lateinit var organos: MutableList<Pair<Int, String>> // Ahora incluye IDs
+    private lateinit var organos: MutableList<Pair<Int, String>>
     private lateinit var serVivoTextView: TextView
     private var serVivoId: Int = -1
 
@@ -36,23 +36,35 @@ class ListaOrganosActivity : AppCompatActivity() {
         serVivoTextView = findViewById(R.id.serVivoTextView) // TextView para SerVivo
         val btnAgregarOrgano = findViewById<Button>(R.id.btnAgregarOrgano)
 
+        // Obtener el ID del ser vivo y otros datos
         serVivoId = intent.getIntExtra("SER_VIVO_ID", -1)
+        val nombre = intent.getStringExtra("NOMBRE")
+        val tipo = intent.getStringExtra("TIPO")
 
         if (serVivoId == -1) {
             Toast.makeText(this, "Error: no se encontró el ser vivo.", Toast.LENGTH_SHORT).show()
-            finish()
+            finish()  // Termina la actividad si no se encontró el ID
             return
         }
 
-        // Mostrar el nombre del ser vivo
-        mostrarSerVivo()
+        // Mostrar el nombre y tipo del ser vivo
+        serVivoTextView.text = "Ser Vivo: $nombre"
 
+        // Cargar los órganos del ser vivo
         cargarOrganos(serVivoId)
 
+        // Botón para agregar un nuevo órgano
         btnAgregarOrgano.setOnClickListener {
             val intent = Intent(this, GestionarOrganoActivity::class.java)
             intent.putExtra("SER_VIVO_ID", serVivoId)
             startActivity(intent)
+        }
+
+        // Configura el evento de clic en el ListView para mostrar más detalles del órgano
+        listView.setOnItemClickListener { _, _, position, _ ->
+            val organoId = organos[position].first  // ID del órgano
+            val organoNombre = organos[position].second  // Nombre y función del órgano
+            Toast.makeText(this, "Información: $organoNombre", Toast.LENGTH_LONG).show()
         }
 
         // Configurar el evento de mantener presionado en el ListView
@@ -62,19 +74,18 @@ class ListaOrganosActivity : AppCompatActivity() {
         }
     }
 
-    private fun mostrarSerVivo() {
-        val db = dbHelper.readableDatabase
-        val cursor = db.rawQuery("SELECT nombre FROM SerVivo WHERE id = ?", arrayOf(serVivoId.toString()))
-        if (cursor.moveToFirst()) {
-            val nombre = cursor.getString(0)
-            serVivoTextView.text = "Ser Vivo: $nombre"
-        }
-        cursor.close()
-    }
-
+    // Método para cargar los órganos de la base de datos
     private fun cargarOrganos(serVivoId: Int) {
         val db = dbHelper.readableDatabase
-        val cursor = db.rawQuery("SELECT id, nombre, funcion FROM Organo WHERE ser_vivo_id = ?", arrayOf(serVivoId.toString()))
+        // Obtener el nombre del ser vivo
+        val serVivoCursor = db.rawQuery("SELECT nombre FROM SerVivo WHERE id = ?", arrayOf(serVivoId.toString()))
+        var nombreSerVivo = "Ser Vivo Desconocido"
+
+        if (serVivoCursor.moveToFirst()) {
+            nombreSerVivo = serVivoCursor.getString(0)
+        }
+        serVivoCursor.close()
+        val cursor = db.rawQuery("SELECT id, nombre, funcion, cantidadCelulas, eficiencia FROM Organo WHERE serVivo_id = ?", arrayOf(serVivoId.toString()))
 
         organos = mutableListOf()
         if (cursor.moveToFirst()) {
@@ -82,7 +93,12 @@ class ListaOrganosActivity : AppCompatActivity() {
                 val id = cursor.getInt(0)
                 val nombre = cursor.getString(1)
                 val funcion = cursor.getString(2)
-                organos.add(id to "$nombre: $funcion")
+                val cantidadCelulas = cursor.getInt(3)
+                val eficiencia = cursor.getDouble(4)
+                organos.add(id to "$nombre:\n " +
+                        "> Función: $funcion\n " +
+                        "> Cantidad de Células: $cantidadCelulas\n " +
+                        "> Eficiencia: $eficiencia")
             } while (cursor.moveToNext())
         }
         cursor.close()
@@ -92,11 +108,12 @@ class ListaOrganosActivity : AppCompatActivity() {
         listView.adapter = adapter
     }
 
+    // Mostrar un cuadro de opciones (Editar o Eliminar) para un órgano
     private fun mostrarOpciones(organoId: Int, organoInfo: String) {
         val opciones = arrayOf("Editar", "Eliminar")
 
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Opciones para $organoInfo")
+
         builder.setItems(opciones) { _, which ->
             when (which) {
                 0 -> editarOrgano(organoId)
@@ -106,6 +123,7 @@ class ListaOrganosActivity : AppCompatActivity() {
         builder.show()
     }
 
+    // Método para editar un órgano
     private fun editarOrgano(organoId: Int) {
         val db = dbHelper.readableDatabase
         val cursor = db.rawQuery("SELECT nombre, funcion, cantidadCelulas, eficiencia FROM Organo WHERE id = ?", arrayOf(organoId.toString()))
@@ -133,6 +151,7 @@ class ListaOrganosActivity : AppCompatActivity() {
         }
     }
 
+    // Método para eliminar un órgano
     private fun eliminarOrgano(organoId: Int) {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Eliminar Órgano")
@@ -140,13 +159,14 @@ class ListaOrganosActivity : AppCompatActivity() {
         builder.setPositiveButton("Eliminar") { _, _ ->
             val db = dbHelper.writableDatabase
             db.execSQL("DELETE FROM Organo WHERE id = ?", arrayOf(organoId))
-            cargarOrganos(serVivoId)
+            cargarOrganos(serVivoId)  // Recargar la lista de órganos
             Toast.makeText(this, "Órgano eliminado correctamente", Toast.LENGTH_SHORT).show()
         }
         builder.setNegativeButton("Cancelar", null)
         builder.show()
     }
 
+    // Recargar la lista de órganos cuando la actividad se reanude
     override fun onResume() {
         super.onResume()
         cargarOrganos(serVivoId)

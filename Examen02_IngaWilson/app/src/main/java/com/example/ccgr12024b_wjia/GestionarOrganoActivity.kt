@@ -43,7 +43,13 @@ class GestionarOrganoActivity : AppCompatActivity() {
         val btnGuardar = findViewById<Button>(R.id.btnGuardarOrgano)
 
         // Obtener IDs de SerVivo y Organo
-        serVivoId = intent.getIntExtra("SERVIVO_ID", -1)
+        serVivoId = intent.getIntExtra("SER_VIVO_ID", -1)
+        if (serVivoId == -1) {
+            Toast.makeText(this, "Error: no se encontró el ser vivo.", Toast.LENGTH_SHORT).show()
+            finish()  // Termina la actividad si no se encontró el ID
+            return
+        }
+
         organoId = intent.getIntExtra("ORGANO_ID", -1)
 
         if (serVivoId == -1) {
@@ -53,7 +59,7 @@ class GestionarOrganoActivity : AppCompatActivity() {
         }
 
         // Mostrar información del SerVivo
-        mostrarInfoSerVivo()
+        //mostrarInfoSerVivo()
 
         // Si es edición, cargar datos del órgano
         if (organoId != -1) {

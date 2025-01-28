@@ -1,147 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GestionarOrganoActivity"
-    android:padding="16dp">
+    android:background="@android:color/background_dark"
+    android:padding="16dp"
+    tools:context=".GestionarOrganoActivity">
 
-    <!-- Título del Ser Vivo -->
-
-    <!-- EditText para Nombre del Órgano -->
+    <!-- Título centrado con mayor tamaño -->
     <TextView
         android:id="@+id/tvSerVivoInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="88dp"
-        android:text="Datos del Ser Vivo"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@android:color/black"
+        android:text="Órgano"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/etNombreOrgano"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- EditText para Función del Órgano -->
-
-    <TextView
-        android:id="@+id/textViewNombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
-        android:text="Nombre del Órgano:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/etNombreOrgano"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintVertical_bias="0.1" />
+
+    <!-- EditText estilizados -->
 
     <EditText
         android:id="@+id/etNombreOrgano"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="66dp"
-        android:backgroundTint="@android:color/darker_gray"
-        android:drawableLeft="@android:drawable/ic_input_add"
-        android:hint="Nombre del Órgano"
+        android:layout_height="50dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@android:color/white"
+        android:hint=" Nombre del Órgano"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/etFuncionOrgano"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewFuncion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Función del Órgano:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/darker_gray"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/etFuncionOrgano"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <!-- EditText para Cantidad de Células -->
-
-    <EditText
-        android:id="@+id/etFuncionOrgano"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="56dp"
-        android:backgroundTint="@android:color/darker_gray"
-        android:drawableLeft="@android:drawable/ic_input_add"
-        android:hint="Función del Órgano"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/etCantidadCelulas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewCantidadCelulas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cantidad de Células:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/darker_gray"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/etCantidadCelulas"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <!-- EditText para Eficiencia -->
     <EditText
         android:id="@+id/etCantidadCelulas"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="56dp"
-        android:backgroundTint="@android:color/darker_gray"
-        android:drawableLeft="@android:drawable/ic_input_add"
-        android:hint="Cantidad de Células"
+        android:layout_height="50dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="@android:color/white"
+        android:hint=" Cantidad de Células"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/etEficiencia"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewEficiencia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Eficiencia:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/darker_gray"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/etEficiencia"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/etEficiencia"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="32dp"
-        android:hint="Eficiencia"
-        android:backgroundTint="@android:color/darker_gray"
+        android:layout_height="50dp"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="@android:color/white"
+        android:hint=" Eficiencia"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:drawableLeft="@android:drawable/ic_input_add"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnGuardarOrgano"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/btnGuardarOrgano" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Botón de Guardar -->
+    <EditText
+        android:id="@+id/etFuncionOrgano"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@android:color/white"
+        android:hint=" Función del Órgano"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/etCantidadCelulas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Botón estilizado -->
     <Button
         android:id="@+id/btnGuardarOrgano"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="32dp"
-        android:background="@color/design_default_color_primary_dark"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="180dp"
+        android:backgroundTint="@android:color/holo_blue_light"
         android:text="Guardar"
         android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

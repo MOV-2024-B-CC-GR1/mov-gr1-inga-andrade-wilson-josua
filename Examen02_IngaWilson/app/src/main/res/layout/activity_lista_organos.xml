@@ -1,61 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListaOrganosActivity"
-    android:padding="16dp">
+    android:background="@android:color/background_dark"
+    android:padding="16dp"
+    tools:context=".ListaOrganosActivity">
 
-    <!-- Título para mostrar el nombre del ser vivo -->
-
-    <!-- ListView para mostrar los órganos -->
-
+    <!-- Título centrado con mayor tamaño -->
     <TextView
         android:id="@+id/serVivoTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Ser Vivo:"
-        android:textColor="?attr/colorPrimaryDark"
-        android:textSize="20sp"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/listaOrganos"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/listaOrganos"
+        app:layout_constraintVertical_bias="0.1" />
 
-    <!-- Botón para agregar un órgano -->
+    <!-- ListView con fondo sutil y sin bordes agresivos -->
+
+    <!-- Botón estilizado con esquinas redondeadas -->
 
     <ListView
         android:id="@+id/listaOrganos"
-        android:layout_width="377dp"
-        android:layout_height="474dp"
-        android:backgroundTint="@android:color/white"
+        android:layout_width="374dp"
+        android:layout_height="491dp"
+        android:background="@android:color/black"
         android:divider="@android:color/darker_gray"
         android:dividerHeight="1dp"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="12dp"
+        app:layout_constraintBottom_toTopOf="@id/btnAgregarOrgano"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@+id/tvOrgano" />
 
     <Button
         android:id="@+id/btnAgregarOrgano"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:background="?attr/colorPrimaryDark"
+        android:layout_width="240dp"
+        android:layout_height="44dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:gravity="center"
         android:text="Agregar Órgano"
         android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.943" />
+        app:layout_constraintTop_toBottomOf="@id/listaOrganos"
+        app:layout_constraintVertical_bias="1.0" />
 
+    <TextView
+        android:id="@+id/tvOrgano"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Lista de Órganos"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/serVivoTextView"
+        app:layout_constraintStart_toStartOf="@+id/serVivoTextView"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

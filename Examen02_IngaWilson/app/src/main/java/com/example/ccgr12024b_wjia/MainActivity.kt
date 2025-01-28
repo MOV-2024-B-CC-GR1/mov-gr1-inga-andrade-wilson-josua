@@ -3,6 +3,7 @@ package com.example.ccgr12024b_wjia
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
@@ -13,8 +14,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         seresVivos = obtenerSeresVivos()
 
         // Adaptador con los nombres de los seres vivos
-        val nombres = seresVivos.map { "${it.nombre} - ${it.tipo}" }.toMutableList()
+        val nombres = seresVivos.map { "it.nombre" }.toMutableList()
         adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, nombres)
         listaSeresVivos.adapter = adapter
 
@@ -54,6 +53,22 @@ class MainActivity : AppCompatActivity() {
             mostrarOpcionesCRUD(seresVivos[position])
             true
         }
+
+        listaSeresVivos.setOnItemClickListener { _, _, position, _ ->
+            // Obtener el ser vivo seleccionado
+            val serVivo = seresVivos[position]
+
+            // Crear un Intent para abrir ListaOrganosActivity
+            val intent = Intent(this, ListaOrganosActivity::class.java).apply {
+                putExtra("SER_VIVO_ID", serVivo.id)  // Pasar el ID del ser vivo
+                putExtra("NOMBRE", serVivo.nombre)  // Pasar el nombre del ser vivo
+                putExtra("TIPO", serVivo.tipo)      // Pasar el tipo del ser vivo
+            }
+
+            // Iniciar la actividad
+            startActivity(intent)
+        }
+
     }
 
     private fun obtenerSeresVivos(): MutableList<SerVivo> {
@@ -61,19 +76,15 @@ class MainActivity : AppCompatActivity() {
         val db = dbHelper.readableDatabase
         val cursor = db.rawQuery("SELECT * FROM SerVivo", null)
 
-        val formatter = DateTimeFormatter.ISO_DATE
         if (cursor.moveToFirst()) {
             do {
                 val id = cursor.getInt(cursor.getColumnIndexOrThrow("id"))
                 val nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre"))
                 val tipo = cursor.getString(cursor.getColumnIndexOrThrow("tipo"))
                 val esVertebrado = cursor.getInt(cursor.getColumnIndexOrThrow("esVertebrado")) == 1
-                val fechaNacimiento = LocalDate.parse(cursor.getString(cursor.getColumnIndexOrThrow("fechaNacimiento")), formatter)
+                val fechaNacimiento = cursor.getString(cursor.getColumnIndexOrThrow("fechaNacimiento"))
 
-                // Obtener órganos asociados
-                val organos = dbHelper.obtenerOrganosPorSerVivo(id)
-
-                lista.add(SerVivo(id, nombre, tipo, esVertebrado, fechaNacimiento, organos))
+                lista.add(SerVivo(id, nombre, tipo, esVertebrado, fechaNacimiento))
             } while (cursor.moveToNext())
         }
         cursor.close()
@@ -81,14 +92,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun mostrarOpcionesCRUD(serVivo: SerVivo) {
-        val opciones = arrayOf("Editar", "Eliminar", "Ver Órganos")
+        val opciones = arrayOf("Editar", "Eliminar")
         AlertDialog.Builder(this)
-            .setTitle("Opciones para ${serVivo.nombre}")
             .setItems(opciones) { _, which ->
                 when (which) {
                     0 -> editarSerVivo(serVivo)
                     1 -> eliminarSerVivo(serVivo)
-                    2 -> verOrganos(serVivo)
                 }
             }
             .show()
@@ -118,19 +127,13 @@ class MainActivity : AppCompatActivity() {
         seresVivos = obtenerSeresVivos()
 
         // Actualiza los datos del adaptador
-        val nombres = seresVivos.map { "${it.nombre} - ${it.tipo}" }.toMutableList()
+        val nombres = seresVivos.map { "Nombre: ${it.nombre}\n" +
+                "> Tipo: ${it.tipo}\n" +
+                "> Fecha de Nacimiento: ${it.fechaNacimiento}\n" +
+                "> Vertebrado: ${it.esVertebrado}" }.toMutableList()
         adapter.clear()
         adapter.addAll(nombres)
         adapter.notifyDataSetChanged()
     }
 
-    private fun verOrganos(serVivo: SerVivo) {
-        Log.d("MainActivity", "ID del ser vivo seleccionado: ${serVivo.id}")
-
-        val intent = Intent(this, ListaOrganosActivity::class.java)
-        intent.putExtra("NOMBRE", serVivo.nombre)
-        intent.putExtra("TIPO", serVivo.tipo)
-        intent.putExtra("SER_VIVO_ID", serVivo.id)
-        startActivity(intent)
-    }
 }
