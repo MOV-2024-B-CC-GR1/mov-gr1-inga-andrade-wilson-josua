@@ -30,7 +30,7 @@
 
     <EditText
         android:id="@+id/etNombre"
-        android:layout_width="281dp"
+        android:layout_width="290dp"
         android:layout_height="50dp"
         android:layout_marginBottom="36dp"
         android:backgroundTint="@android:color/darker_gray"
@@ -74,7 +74,7 @@
 
     <EditText
         android:id="@+id/etTipo"
-        android:layout_width="281dp"
+        android:layout_width="290dp"
         android:layout_height="50dp"
         android:layout_marginBottom="28dp"
         android:backgroundTint="@android:color/darker_gray"
@@ -91,8 +91,8 @@
 
     <EditText
         android:id="@+id/etFechaNacimiento"
-        android:layout_width="281dp"
-        android:layout_height="50dp"
+        android:layout_width="290dp"
+        android:layout_height="80dp"
         android:layout_marginBottom="40dp"
         android:backgroundTint="@android:color/darker_gray"
         android:drawableLeft="@android:drawable/presence_invisible"
