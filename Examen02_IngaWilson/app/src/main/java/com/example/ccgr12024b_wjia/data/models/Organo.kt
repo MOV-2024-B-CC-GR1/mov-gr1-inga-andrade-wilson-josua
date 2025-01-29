@@ -1,7 +1,5 @@
 package com.example.ccgr12024b_wjia
 
-import android.adservices.adid.AdId
-
 data class Organo(
     val id: Int,              // Identificador único del órgano.
     val nombre: String,       // Nombre del órgano.
