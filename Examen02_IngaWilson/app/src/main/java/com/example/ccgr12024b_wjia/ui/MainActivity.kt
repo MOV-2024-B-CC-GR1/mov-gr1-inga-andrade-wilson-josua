@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
         // Configuración del clic largo sobre un elemento de la lista
         listaSeresVivos.setOnItemLongClickListener { _, _, position, _ ->
             mostrarOpcionesCRUD(seresVivos[position])
@@ -97,14 +98,21 @@ class MainActivity : AppCompatActivity() {
         return lista
     }
 
+    // Método para ir a Google Maps
+    private fun irMapa(serVivo: SerVivo) {
+        val intent = Intent(this, GGoogleMaps::class.java)
+        startActivity(intent)
+    }
+
     // Método para mostrar las opciones de CRUD (editar o eliminar) al hacer clic largo en un ser vivo
     private fun mostrarOpcionesCRUD(serVivo: SerVivo) {
-        val opciones = arrayOf("Editar", "Eliminar")
+        val opciones = arrayOf("Editar", "Eliminar", "Localización")
         AlertDialog.Builder(this)
             .setItems(opciones) { _, which ->
                 when (which) {
                     0 -> editarSerVivo(serVivo)  // Editar el ser vivo
                     1 -> eliminarSerVivo(serVivo)  // Eliminar el ser vivo
+                    2 -> irMapa(serVivo) // Ir Google Maps
                 }
             }
             .show()
@@ -143,6 +151,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+
     // Método que se ejecuta cuando la actividad vuelve a primer plano
     override fun onResume() {
         super.onResume()
@@ -167,4 +177,5 @@ class MainActivity : AppCompatActivity() {
         adapter.addAll(nombres)
         adapter.notifyDataSetChanged()
     }
+
 }

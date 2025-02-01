@@ -10,11 +10,6 @@
     android:padding="16dp"
     tools:context=".GOrganosActivity">
 
-    <!-- Título centrado con mayor tamaño -->
-
-    <!-- ListView con fondo sutil y sin bordes agresivos -->
-
-    <!-- Botón estilizado con esquinas redondeadas -->
 
     <TextView
         android:id="@+id/serVivoTextView"
